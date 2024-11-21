@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày Nhà Giáo Việt Nam 20/11</title>
+    <style>
+        body {
+        background: url('./37759907_2105530906381899_2289986556892545024_n.jpg') no-repeat center 7px fixed;
+        background-size: 80%;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        position: relative;
+    }
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.8); /* Lớp overlay màu trắng để text dễ đọc */
+        z-index: 1;
+    }
+
+    .container {
+        text-align: center;
+        max-width: 800px;
+        position: relative;
+        z-index: 2; /* Đặt container lên trên lớp overlay */
+    }
+
+    .message {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        margin: 20px 0;
+        animation: slideUp 1.5s;
+        backdrop-filter: blur(5px);
+    }
+
+    h1 {
+        color: #d4145a;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        animation: fadeIn 2s;
+    }
+
+    .hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3; /* Đặt hearts lên trên cùng */
+    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="container">
+        <h1>Chúc Mừng Ngày Nhà Giáo Việt Nam 20/11</h1>
+        <div class="message">
+            <p>Kính gửi thầy cô!</p>
+            <p>Nhân ngày Nhà giáo Việt Nam 20/11,</p>
+            <p>Nhân ngày nhà giáo Việt Nam em chúc ba mẹ luôn mạnh khỏe, hạnh phúc và thành công trong sự nghiệp nha.</p>
+            <p>Ba mẹ là tuyệt vời nhất</p>
+        </div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.opacity = '0.8';
+            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+            document.getElementById('hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+
+        document.styleSheets[0].insertRule(`
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh);
+                }
+            }
+        `, document.styleSheets[0].cssRules.length);
+    </script>
+</body>
+</html> 
